@@ -66,9 +66,19 @@ pip install -r requirements.txt
 
 ### 2. Choose Your Experience
 
-#### 🎨 **Web Interface** (Recommended for Demo)
+#### 🎯 **Quick Demo** (Try It Now!)
 ```bash
-# Launch interactive web interface
+# Launch the interactive demo (no training required)
+python3 quick_demo.py
+
+# Then open: http://localhost:8080
+# Upload any chest X-ray image and get instant results!
+```
+**Perfect for**: First-time users, quick testing, showcasing the project
+
+#### 🎨 **Full Web Interface** (Advanced Features)
+```bash
+# Launch interactive web interface with Grad-CAM
 python3 run_web_interface.py
 
 # Choose from:
@@ -76,6 +86,15 @@ python3 run_web_interface.py
 # 2. Flask Interface (Fast & Simple)  
 # 3. Demo Mode (Test with sample images)
 ```
+**Perfect for**: Deep analysis, explainable AI, research purposes
+
+| Feature | Quick Demo | Full Interface |
+|---------|------------|----------------|
+| Setup Time | Instant | Requires training |
+| Grad-CAM Visualization | ❌ | ✅ |
+| Real Model Results | Simulated | ✅ Actual |
+| Ease of Use | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| Educational Value | High | Very High |
 
 #### 🧠 **Train Your Own Model**
 ```bash
