@@ -198,12 +198,14 @@ PP7: Computer vision and image classification/
 │
 ├── 📊 Analysis & Visualization
 │   ├── visualize_extended_results.py
-│   └── covid_classification.ipynb # Complete notebook
+│   ├── covid_classification.ipynb # Complete notebook
+│   └── results/                   # Training and visualization results
 │
 ├── 📋 Documentation
 │   ├── README.md                  # This file
-│   ├── requirements.txt           # Dependencies
-│   └── potential_improvements.md  # Future enhancements
+│   ├── CONTRIBUTING.md            # Technical documentation
+│   ├── CHANGELOG.md               # Version history
+│   └── requirements.txt           # Dependencies
 │
 └── 📁 Data (download separately)
     ├── COVID/                     # COVID-19 positive X-rays
@@ -277,7 +279,7 @@ This is a solo academic project developed by Jordanaftermidnight. While the code
 
 ### 📚 Educational Use
 - Feel free to use this code for learning and educational purposes
-- Refer to [CONTRIBUTING.md](CONTRIBUTING.md) for technical details about the codebase
+- Refer to [CONTRIBUTING.md](CONTRIBUTING.md) for technical documentation and implementation details
 - All implementations follow medical AI ethics and responsible development practices
 
 ### 🔒 Medical AI Ethics Notice
