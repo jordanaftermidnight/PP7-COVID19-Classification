@@ -220,7 +220,6 @@ def main():
         
         elif choice == "5":
             print("\n👋 Thank you for using the COVID-19 Classification Project!")
-            print("🌟 Don't forget to star the repository if it helped you!")
             break
         
         else:

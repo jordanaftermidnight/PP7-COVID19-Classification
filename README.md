@@ -276,7 +276,3 @@ This project is open source. Please use responsibly and ethically, especially gi
 - All contributors and users
 
 ---
-
-**🌟 Star this repository if it helped you learn about medical AI!**
-
-Made with ❤️ for AI education and research.
