@@ -14,7 +14,14 @@
 [![Medical AI](https://img.shields.io/badge/Medical%20AI-Ethical-important)](README.md)
 
 ## 🎯 Overview
-Advanced AI system for detecting COVID-19 pneumonia patterns in chest X-ray images using deep learning. Features multiple CNN architectures, explainable AI visualization, and interactive web interfaces for both research and demonstration purposes.
+
+This project represents a comprehensive medical AI system designed for COVID-19 detection in chest X-ray images, achieving exceptional performance that far exceeds academic requirements. Built using PyTorch and advanced deep learning techniques, the system demonstrates the practical application of artificial intelligence in healthcare while maintaining strict ethical standards and educational focus.
+
+The core implementation features a ResNet-18 based convolutional neural network with custom classification head, optimized through transfer learning for medical imaging tasks. The model achieves 99.17% classification accuracy with 100% COVID-19 detection sensitivity and 95% normal specificity, significantly outperforming the original research benchmarks and exceeding the project requirement of >50% accuracy by nearly 50 percentage points.
+
+Beyond the technical achievement, this project showcases professional software development practices including comprehensive testing (95%+ coverage), automated CI/CD pipelines, cross-platform compatibility, and production-ready deployment options. Multiple user interfaces cater to different needs: a 30-second quick demo for immediate testing, advanced Streamlit interface with Grad-CAM explainable AI visualization, and lightweight Flask deployment for production environments.
+
+The project emphasizes responsible medical AI development with comprehensive ethical guidelines, appropriate medical disclaimers, and focus on educational and research applications rather than clinical use. All implementations include robust error handling, security considerations, and bias detection capabilities essential for healthcare AI systems.
 
 ## 🏆 Project Achievements
 - **99.17% Classification Accuracy** (Target: >50% ✅)
@@ -266,43 +273,19 @@ Our model exceeds the performance reported in the original research papers:
 
 ## 🤝 Contributing
 
-This project welcomes contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+This is a solo academic project developed by Jordanaftermidnight. While the codebase is designed with professional standards and extensibility in mind, it serves primarily as an educational and research demonstration.
 
-### 🚀 Quick Contribution Areas:
-- **Model Improvements**: New architectures, ensemble methods, optimization
-- **Data & Evaluation**: Additional datasets, evaluation metrics, cross-validation
-- **Explainable AI**: New visualization methods, clinical interpretation tools
-- **Interface & Accessibility**: Mobile support, APIs, internationalization
-- **Testing & Quality**: Test coverage, performance benchmarks, documentation
+### 📚 Educational Use
+- Feel free to use this code for learning and educational purposes
+- Refer to [CONTRIBUTING.md](CONTRIBUTING.md) for technical details about the codebase
+- All implementations follow medical AI ethics and responsible development practices
 
-### 📋 Development Workflow:
-```bash
-# 1. Fork and clone the repository
-git clone https://github.com/YOUR_USERNAME/-PP7-COVID19-Classification.git
-
-# 2. Install development dependencies
-pip install -r requirements.txt
-pip install pytest pytest-cov flake8 black
-
-# 3. Run tests to ensure everything works
-python -m pytest tests/ -v
-
-# 4. Make your changes and add tests
-# 5. Run quality checks
-flake8 . --max-line-length=127
-python -m pytest tests/ -v --cov=.
-
-# 6. Submit a pull request
-```
-
-### 🔒 Medical AI Ethics
-All contributions must align with medical AI ethics:
-- ✅ Educational/research purposes only
-- ✅ Privacy-preserving synthetic data
-- ✅ Bias detection and mitigation
-- ✅ Transparent and explainable methods
-- ❌ Real patient data or PHI
-- ❌ Claims of clinical diagnostic capability
+### 🔒 Medical AI Ethics Notice
+This project maintains strict ethical standards:
+- ✅ Educational and research purposes only
+- ✅ Appropriate medical disclaimers and safety warnings
+- ✅ No claims of clinical diagnostic capability
+- ✅ Privacy-preserving approach with synthetic examples
 
 ## 📞 Support
 
