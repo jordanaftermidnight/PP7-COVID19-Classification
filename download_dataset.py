@@ -26,35 +26,35 @@ def download_dataset():
     """Download the COVID-19 radiography database"""
     dataset_name = "tawsifurrahman/covid19-radiography-database"
     print(f"Downloading dataset: {dataset_name}")
-    
+
     try:
         # Download dataset
         result = subprocess.run([
             "kaggle", "datasets", "download", "-d", dataset_name
         ], capture_output=True, text=True)
-        
+
         if result.returncode != 0:
             print(f"Error downloading dataset: {result.stderr}")
             return False
-        
+
         # Extract dataset
         zip_file = "covid19-radiography-database.zip"
         if os.path.exists(zip_file):
             print("Extracting dataset...")
             with zipfile.ZipFile(zip_file, 'r') as zip_ref:
                 zip_ref.extractall(".")
-            
+
             # Clean up zip file
             os.remove(zip_file)
             print("Dataset extracted successfully!")
-            
+
             # Create organized structure
             organize_dataset()
             return True
         else:
             print("Dataset zip file not found")
             return False
-            
+
     except Exception as e:
         print(f"Error: {e}")
         return False
@@ -62,10 +62,10 @@ def download_dataset():
 def organize_dataset():
     """Organize dataset into proper structure"""
     print("Organizing dataset structure...")
-    
+
     # Create data directories
     os.makedirs("data", exist_ok=True)
-    
+
     # Move folders if they exist
     source_dirs = ["COVID", "Normal", "Lung_Opacity", "Viral Pneumonia"]
     for dir_name in source_dirs:
@@ -83,7 +83,7 @@ def main():
     """Main function"""
     print("COVID-19 Dataset Download Script")
     print("=" * 40)
-    
+
     # Check if Kaggle is installed
     if not check_kaggle_installation():
         try:
@@ -92,7 +92,7 @@ def main():
             print(f"Failed to install Kaggle: {e}")
             print("Please install manually: pip install kaggle")
             return
-    
+
     # Check if Kaggle credentials are set up
     kaggle_dir = os.path.expanduser("~/.kaggle")
     if not os.path.exists(f"{kaggle_dir}/kaggle.json"):
@@ -103,7 +103,7 @@ def main():
         print("3. Place kaggle.json in ~/.kaggle/")
         print("4. Run: chmod 600 ~/.kaggle/kaggle.json")
         return
-    
+
     # Download and organize dataset
     if download_dataset():
         print("\nDataset setup complete!")

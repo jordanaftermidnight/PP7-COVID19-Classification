@@ -15,7 +15,7 @@ sns.set_palette("husl")
 
 def load_and_visualize_extended_results():
     """Load and visualize extended training results"""
-    
+
     # Try to load extended results first, then fall back to original
     results_file = 'models/training_results_extended.pkl'
     if not os.path.exists(results_file):
@@ -23,17 +23,17 @@ def load_and_visualize_extended_results():
         print(f"Extended results not found, using original results from {results_file}")
     else:
         print(f"Loading extended results from {results_file}")
-    
+
     try:
         with open(results_file, 'rb') as f:
             results = pickle.load(f)
-        
+
         fig, axes = plt.subplots(2, 2, figsize=(16, 12))
-        fig.suptitle('COVID-19 Chest X-Ray Classification - Extended Training Results', 
+        fig.suptitle('COVID-19 Chest X-Ray Classification - Extended Training Results',
                     fontsize=18, fontweight='bold')
-        
+
         epochs = range(1, len(results['train_accuracies']) + 1)
-        
+
         # Plot 1: Training and Test Accuracy
         axes[0, 0].plot(epochs, results['train_accuracies'], 'b-', label='Train Accuracy', linewidth=2, alpha=0.8)
         axes[0, 0].plot(epochs, results['test_accuracies'], 'r-', label='Test Accuracy', linewidth=2)
@@ -44,17 +44,17 @@ def load_and_visualize_extended_results():
         axes[0, 0].legend()
         axes[0, 0].grid(True, alpha=0.3)
         axes[0, 0].set_ylim([0, 100])
-        
+
         # Highlight best accuracy
         best_acc = max(results['test_accuracies'])
         best_epoch = results['test_accuracies'].index(best_acc) + 1
         axes[0, 0].scatter([best_epoch], [best_acc], color='red', s=100, zorder=5)
-        axes[0, 0].annotate(f'Best: {best_acc:.2f}%', 
-                           xy=(best_epoch, best_acc), 
+        axes[0, 0].annotate(f'Best: {best_acc:.2f}%',
+                           xy=(best_epoch, best_acc),
                            xytext=(10, 10), textcoords='offset points',
                            bbox=dict(boxstyle='round,pad=0.3', facecolor='yellow', alpha=0.7),
                            fontweight='bold')
-        
+
         # Plot 2: Training and Test Loss
         axes[0, 1].plot(epochs, results['train_losses'], 'b-', label='Train Loss', linewidth=2, alpha=0.8)
         axes[0, 1].plot(epochs, results['test_losses'], 'r-', label='Test Loss', linewidth=2)
@@ -63,34 +63,34 @@ def load_and_visualize_extended_results():
         axes[0, 1].set_title('Loss Over Time')
         axes[0, 1].legend()
         axes[0, 1].grid(True, alpha=0.3)
-        
+
         # Plot 3: Final Performance Metrics
         metrics = ['Final\\nAccuracy', 'Best\\nAccuracy', 'Sensitivity', 'Specificity']
         values = [
-            results['final_accuracy'], 
+            results['final_accuracy'],
             results.get('best_accuracy', results['final_accuracy']),
-            results['sensitivity'] * 100, 
+            results['sensitivity'] * 100,
             results['specificity'] * 100
         ]
         colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']
-        
+
         bars = axes[1, 0].bar(metrics, values, color=colors, alpha=0.8)
         axes[1, 0].set_ylabel('Percentage (%)')
         axes[1, 0].set_title('Performance Metrics Summary')
         axes[1, 0].set_ylim([0, 100])
-        
+
         # Add value labels on bars
         for bar, value in zip(bars, values):
             height = bar.get_height()
             axes[1, 0].text(bar.get_x() + bar.get_width()/2., height + 1,
                            f'{value:.1f}%', ha='center', va='bottom', fontweight='bold')
-        
+
         # Plot 4: Training Summary Information
         axes[1, 1].axis('off')
-        
+
         total_epochs = results.get('total_epochs', len(results['train_accuracies']))
         best_accuracy = results.get('best_accuracy', max(results['test_accuracies']))
-        
+
         info_text = f"""EXTENDED TRAINING RESULTS SUMMARY
 
 PERFORMANCE METRICS:
@@ -119,21 +119,21 @@ DATASET INFORMATION:
 
 PROJECT STATUS: ✅ ALL REQUIREMENTS MET
         """
-        
+
         axes[1, 1].text(0.05, 0.95, info_text, transform=axes[1, 1].transAxes,
                        fontsize=10, verticalalignment='top', fontfamily='monospace',
                        bbox=dict(boxstyle='round,pad=0.5', facecolor='lightblue', alpha=0.8))
-        
+
         plt.tight_layout()
-        
+
         # Save with different name for extended results
         filename = 'covid_classification_extended_results.png' if 'extended' in results_file else 'covid_classification_results.png'
         plt.savefig(filename, dpi=300, bbox_inches='tight')
-        
+
         print(f"Results visualization saved as '{filename}'")
-        
+
         return results
-        
+
     except FileNotFoundError:
         print("Results file not found. Please run training first.")
         return None
@@ -145,14 +145,14 @@ def print_extended_summary(results):
     """Print comprehensive training summary"""
     if not results:
         return
-    
+
     print("\\n" + "="*70)
     print("🏥 COVID-19 CLASSIFICATION - EXTENDED TRAINING RESULTS")
     print("="*70)
-    
+
     total_epochs = results.get('total_epochs', len(results['train_accuracies']))
     best_accuracy = results.get('best_accuracy', max(results['test_accuracies']))
-    
+
     print(f"🎯 OBJECTIVE: Binary classification of chest X-rays (COVID vs Normal)")
     print(f"📊 FINAL ACCURACY: {results['final_accuracy']:.2f}%")
     print(f"🏆 BEST ACCURACY: {best_accuracy:.2f}%")
@@ -176,7 +176,7 @@ def print_extended_summary(results):
 if __name__ == "__main__":
     print("COVID-19 Extended Training Results Visualization")
     print("-" * 55)
-    
+
     results = load_and_visualize_extended_results()
     if results:
         print_extended_summary(results)
